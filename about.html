@@ -35,12 +35,7 @@
             padding: 0 20px;
         }
         
-        /* 确保移动导航菜单完全隐藏 */
-        .menu-toggle, .mobile-nav {
-            display: none !important;
-        }
-        
-        /* 固定导航栏样式 */
+        /* 导航栏样式 */
         header {
             background-color: rgba(18, 18, 18, 0.9);
             position: fixed;
@@ -66,9 +61,8 @@
             color: #64B5F6;
         }
         
-        /* 确保导航链接始终显示 */
         .nav-links {
-            display: flex !important;
+            display: flex;
             gap: 15px;
         }
         
@@ -171,14 +165,28 @@
             margin: 0;
         }
         
-        /* 移动端特定样式 */
+        /* 响应式设计 */
         @media (max-width: 768px) {
-            /* 确保没有任何代码隐藏导航链接 */
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            /* 确保导航栏在移动端显示 */
+            header {
+                height: 60px;
+            }
+            
+            nav {
+                padding: 10px 0;
+            }
+            
             .nav-links {
-                display: flex !important;
+                display: flex;
                 gap: 15px;
-                visibility: visible !important;
-                opacity: 1 !important;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
             }
             
             /* 添加视口修复 */
@@ -192,7 +200,6 @@
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- 如果有类似这样的代码，需要移除或注释掉
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const footer = document.querySelector('footer');
