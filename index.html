@@ -69,7 +69,7 @@
         .nav-links a {
             color: #f5f5f5;
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .nav-links a:hover {
@@ -81,7 +81,11 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485') center -450px/cover;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
+                        url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485');
+            background-position: center -530px;
+            background-size: cover;
+            background-attachment: fixed;
             position: relative;
             overflow: hidden;
         }
@@ -152,77 +156,54 @@
         /* 汉堡菜单样式 */
         .menu-toggle {
             display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
-            z-index: 1001;
-            position: relative;
-        }
-        
-        .menu-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: #f5f5f5;
-            border-radius: 3px;
-            transition: all 0.3s ease;
         }
         
         .mobile-nav {
-            position: fixed;
-            top: 40px;
-            left: 0;
-            width: 100%;
-            background-color: rgba(18, 18, 18, 0.95);
-            padding: 20px;
-            transform: translateY(-200%);
-            transition: all 0.3s ease-in-out;
-            z-index: 999;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            visibility: hidden;
-            opacity: 0;
-        }
-        
-        .mobile-nav.active {
-            transform: translateY(0);
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        .mobile-nav a {
-            display: block;
-            color: #f5f5f5;
-            font-size: 1.1rem;
-            padding: 12px 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .mobile-nav a:last-child {
-            border-bottom: none;
+            display: none;
         }
         
         /* 响应式设计 */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 3.5rem;
             }
             
             .nav-links {
-                display: none;
+                gap: 15px;
             }
             
-            .menu-toggle {
-                display: flex;
+            .nav-links a {
+                font-size: 0.9rem;
             }
-
-            .mobile-nav {
-                visibility: visible;
-                opacity: 1;
-                transform: translateY(-200%);
+            
+            .hero {
+                background-position: center -530px;
+                background-attachment: fixed;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+                max-width: 600px;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+        }
+        
+        /* 添加更小屏幕的微调 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
             }
         }
     </style>
