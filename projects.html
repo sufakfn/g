@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目 - 智路AI行</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #64B5F6;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #2196F3;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        header {
+            background-color: rgba(18, 18, 18, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            height: 40px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            height: 100%;
+        }
+        
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #64B5F6;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-links a {
+            color: #f5f5f5;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .nav-links a:hover {
+            color: #64B5F6;
+        }
+        
+        /* 项目展示 */
+        .projects {
+            padding: 150px 0 100px;
+            min-height: 100vh;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #2196F3;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: #1E1E1E;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .project-tag {
+            background: rgba(33, 150, 243, 0.1);
+            color: #64B5F6;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: #0D0D0D;
+            padding: 5px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        footer p {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">智路AI行</div>
+                <div class="nav-links">
+                    <a href="index.html">首页</a>
+                    <a href="about.html">关于</a>
+                    <a href="projects.html">项目</a>
+                    <a href="testimonials.html">推荐</a>
+                    <a href="contact.html">联系</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 项目展示 -->
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">项目展示</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1591453089816-0fbb971b454c" alt="智能对话系统">
+                    </div>
+                    <div class="project-info">
+                        <h3>智能对话系统</h3>
+                        <p>基于最新的Transformer架构开发的智能对话系统，能够理解复杂语境并生成自然流畅的回复。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">Transformer</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1561736778-92e52a7769ef" alt="图像识别系统">
+                    </div>
+                    <div class="project-info">
+                        <h3>医疗图像分析</h3>
+                        <p>利用深度学习技术开发的医疗图像分析系统，可以自动检测X光片中的异常情况，辅助医生进行诊断。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">计算机视觉</span>
+                            <span class="project-tag">CNN</span>
+                            <span class="project-tag">医疗AI</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="推荐系统">
+                    </div>
+                    <div class="project-info">
+                        <h3>智能推荐引擎</h3>
+                        <p>为电商平台开发的个性化推荐系统，结合协同过滤和深度学习技术，提高用户体验和转化率。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">推荐系统</span>
+                            <span class="project-tag">深度学习</span>
+                            <span class="project-tag">大数据</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 智路AI行. 保留所有权利.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const footer = document.querySelector('footer');
+            let timeout;
+            
+            // 显示页脚
+            function showFooter() {
+                footer.style.opacity = '1';
+            }
+            
+            // 隐藏页脚
+            function hideFooter() {
+                footer.style.opacity = '0';
+            }
+            
+            // 重置定时器
+            function resetTimer() {
+                clearTimeout(timeout);
+                showFooter();
+                timeout = setTimeout(hideFooter, 3000); // 3秒后隐藏页脚
+            }
+            
+            // 初始隐藏页脚
+            hideFooter();
+            
+            // 监听用户交互
+            document.addEventListener('mousemove', resetTimer);
+            document.addEventListener('click', resetTimer);
+            document.addEventListener('keypress', resetTimer);
+            document.addEventListener('scroll', resetTimer);
+            
+            // 初始化定时器
+            resetTimer();
+        });
+    </script>
+</body>
+</html> 

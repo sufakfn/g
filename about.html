@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>智路AI行 - 人工智能技术</title>
+    <title>关于 - 智路AI行</title>
     <style>
         /* 基础样式 */
         * {
@@ -76,17 +76,16 @@
             color: #64B5F6;
         }
         
-        /* 横幅区 */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
+        /* 关于区 */
+        .about {
+            padding: 150px 0 100px;
             background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485') center -450px/cover;
+            min-height: 100vh;
             position: relative;
             overflow: hidden;
         }
         
-        .hero::before {
+        .about::before {
             content: '';
             position: absolute;
             top: 0;
@@ -94,41 +93,61 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle, transparent 20%, #121212 70%);
+            z-index: 0;
         }
         
-        .hero-content {
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
             position: relative;
             z-index: 1;
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, #64B5F6, #2196F3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            display: inline-block;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
             background: #2196F3;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
         }
         
-        .btn:hover {
-            background: #1976D2;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #64B5F6;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .skill-tag {
+            background: rgba(33, 150, 243, 0.1);
+            color: #64B5F6;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(33, 150, 243, 0.3);
         }
         
         /* 页脚 */
@@ -137,9 +156,6 @@
             padding: 5px 0;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            position: absolute;
-            bottom: 0;
-            width: 100%;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
@@ -151,8 +167,8 @@
         
         /* 响应式设计 */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .about-content {
+                grid-template-columns: 1fr;
             }
             
             .nav-links {
@@ -205,6 +221,7 @@
             <nav>
                 <div class="logo">智路AI行</div>
                 <div class="nav-links">
+                    <a href="index.html">首页</a>
                     <a href="about.html">关于</a>
                     <a href="projects.html">项目</a>
                     <a href="testimonials.html">推荐</a>
@@ -214,13 +231,28 @@
         </div>
     </header>
 
-    <!-- 横幅区 -->
-    <section class="hero">
+    <!-- 关于区 -->
+    <section class="about">
         <div class="container">
-            <div class="hero-content">
-                <h1>AI训练师</h1>
-                <p>专注于机器学习、深度学习和自然语言处理领域，致力于将AI技术应用于解决实际问题，创造更美好的未来。</p>
-                <a href="contact.html" class="btn">联系我</a>
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>专业背景</h3>
+                    <p>我是一名拥有5年行业经验的AI技术专家，专注于机器学习算法研发和AI系统实现。曾在多家科技公司担任技术顾问，参与开发了多个大型AI项目。</p>
+                    <p>我的研究兴趣包括自然语言处理、计算机视觉和强化学习。我相信AI技术能够为人类社会带来革命性的变化，并致力于推动这一进程。</p>
+                    <div class="skills">
+                        <span class="skill-tag">机器学习</span>
+                        <span class="skill-tag">深度学习</span>
+                        <span class="skill-tag">自然语言处理</span>
+                        <span class="skill-tag">计算机视觉</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- 这里可以放置个人照片或相关图像 -->
+                </div>
             </div>
         </div>
     </section>
@@ -232,4 +264,4 @@
         </div>
     </footer>
 </body>
-</html>
+</html> 

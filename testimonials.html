@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推荐 - 智路AI行</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #64B5F6;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #2196F3;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        header {
+            background-color: rgba(18, 18, 18, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            height: 40px; /* 添加固定高度 */
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0; /* 从10px减小到5px */
+            height: 100%;
+        }
+        
+        .logo {
+            font-size: 1.1rem; /* 从1.3rem减小 */
+            font-weight: 700;
+            color: #64B5F6;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px; /* 从20px减小到15px */
+        }
+        
+        .nav-links a {
+            color: #f5f5f5;
+            font-weight: 500;
+            font-size: 1rem;  /* 从0.85rem增大到1rem */
+        }
+        
+        .nav-links a:hover {
+            color: #64B5F6;
+        }
+        
+        /* 推荐区 */
+        .testimonials {
+            padding: 150px 0 100px;
+            background-color: #1E1E1E;
+            min-height: 100vh;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #2196F3;
+        }
+        
+        .testimonial-card {
+            background: #262626;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(33, 150, 243, 0.1);
+            font-family: serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: #9E9E9E;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: #0D0D0D;
+            padding: 5px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        footer p {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">智路AI行</div>
+                <div class="nav-links">
+                    <a href="index.html">首页</a>
+                    <a href="about.html">关于</a>
+                    <a href="projects.html">项目</a>
+                    <a href="testimonials.html">推荐</a>
+                    <a href="contact.html">联系</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 推荐区 -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">专业评价</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">作为项目合作伙伴，我见证了他在AI领域的专业能力和创新思维。他不仅技术精湛，而且能够将复杂的AI概念转化为实际可行的解决方案。</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="张总监">
+                    <div class="author-info">
+                        <h4>张总监</h4>
+                        <p>科技公司技术总监</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">他开发的医疗图像分析系统大大提高了我们的诊断效率和准确率。他对医疗领域的理解和AI技术的应用能力令人印象深刻。</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="李医生">
+                    <div class="author-info">
+                        <h4>李医生</h4>
+                        <p>三甲医院放射科主任</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 智路AI行. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const footer = document.querySelector('footer');
+            let timeout;
+            
+            // 显示页脚
+            function showFooter() {
+                footer.style.opacity = '1';
+            }
+            
+            // 隐藏页脚
+            function hideFooter() {
+                footer.style.opacity = '0';
+            }
+            
+            // 重置定时器
+            function resetTimer() {
+                clearTimeout(timeout);
+                showFooter();
+                timeout = setTimeout(hideFooter, 3000); // 3秒后隐藏页脚
+            }
+            
+            // 初始隐藏页脚
+            hideFooter();
+            
+            // 监听用户交互
+            document.addEventListener('mousemove', resetTimer);
+            document.addEventListener('click', resetTimer);
+            document.addEventListener('keypress', resetTimer);
+            document.addEventListener('scroll', resetTimer);
+            
+            // 初始化定时器
+            resetTimer();
+        });
+    </script>
+</body>
+</html> 
