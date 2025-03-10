@@ -44,14 +44,14 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: 40px; /* 添加固定高度 */
+            height: 60px;
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 0; /* 从10px减小到5px */
+            padding: 10px 0;
             height: 100%;
         }
         
@@ -63,13 +63,13 @@
         
         .nav-links {
             display: flex;
-            gap: 15px; /* 从20px减小到15px */
+            gap: 15px;
         }
         
         .nav-links a {
             color: #f5f5f5;
             font-weight: 500;
-            font-size: 1rem;  /* 从0.85rem增大到1rem */
+            font-size: 0.9rem;
         }
         
         .nav-links a:hover {
@@ -166,8 +166,30 @@
         
         /* 响应式设计 */
         @media (max-width: 768px) {
+            /* 确保导航栏在移动端显示 */
+            header {
+                height: 60px;
+            }
+            
+            nav {
+                padding: 10px 0;
+            }
+            
             .nav-links {
-                display: none;
+                display: flex;
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+            
+            /* 添加视口修复 */
+            html, body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
             }
         }
     </style>
