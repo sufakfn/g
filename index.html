@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>智路AI行 - 人工智能技术</title>
     <style>
         /* 基础样式 */
@@ -85,7 +85,7 @@
                         url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485');
             background-position: center -530px;
             background-size: cover;
-            background-attachment: fixed;
+            background-attachment: scroll;
             position: relative;
             overflow: hidden;
         }
@@ -154,53 +154,44 @@
         }
         
         /* 汉堡菜单样式 */
-        .menu-toggle, .mobile-nav {
+        #menuToggle, #mobileNav {
             display: none !important;
         }
         
         /* 修改响应式设计 */
         @media (max-width: 768px) {
-            /* 移除所有移动端特殊样式 */
-            .nav-links {
-                display: flex !important; /* 强制显示导航链接 */
-                gap: 15px;
+            /* 确保导航栏在移动设备上的显示 */
+            header {
+                height: 60px;
+            }
+
+            nav {
+                padding: 10px 0;
             }
             
-            .nav-links a {
-                font-size: 0.9rem;
-                color: #f5f5f5;
-                font-weight: 500;
+            .nav-links {
+                display: flex !important;
+                gap: 15px;
             }
             
             .hero {
                 background-position: center -530px;
-                background-attachment: fixed;
-                height: 100vh;
-            }
-            
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-                max-width: 600px;
-            }
-            
-            .container {
-                padding: 0 20px;
+                background-attachment: scroll;
             }
         }
         
-        /* 移除或简化小屏幕的特殊处理 */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 20px;
+        /* 修复视口问题 */
+        @media screen and (max-width: 480px) {
+            html, body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
             }
             
-            /* 保持与大屏幕相同的字体大小 */
-            .hero h1 {
-                font-size: 3.5rem;
+            .hero-content {
+                width: 100%;
+                padding: 0 20px;
             }
         }
     </style>
