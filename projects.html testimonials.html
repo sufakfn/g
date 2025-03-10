@@ -2,16 +2,115 @@
 
 <!-- 导航栏 -->
 <header>
-    <div class="container">
-        <nav>
-            <div class="logo">智路AI行</div>
-            <div class="nav-links">
-                <a href="index.html">首页</a>
-                <a href="about.html">关于</a>
-                <a href="projects.html">项目</a>
-                <a href="testimonials.html">推荐</a>
-                <a href="contact.html">联系</a>
-            </div>
-        </nav>
-    </div>
+    <nav>
+        <div class="logo">智路AI行</div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="about.html">关于</a>
+            <a href="projects.html">项目</a>
+            <a href="testimonials.html">推荐</a>
+            <a href="contact.html">联系</a>
+        </div>
+    </nav>
 </header> 
+
+/* 导航栏基础样式 */
+header {
+    background-color: rgba(18, 18, 18, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 60px !important;
+    display: block !important;
+}
+
+nav {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 !important;
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex !important;
+    gap: 15px;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    transform: none !important;
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.nav-links a {
+    color: #f5f5f5 !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 移动端样式 */
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .nav-links {
+        display: flex !important;
+        position: static !important;
+        background: none !important;
+        width: auto !important;
+        padding: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+    
+    .nav-links a {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* 确保移动菜单完全隐藏 */
+    .menu-toggle,
+    .mobile-nav,
+    [class*="hamburger"],
+    [class*="menu-button"],
+    [id*="menu-toggle"],
+    [id*="mobile-nav"] {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+}
+
+/* 修复可能的堆叠问题 */
+.container {
+    position: relative;
+    z-index: 1;
+} 
