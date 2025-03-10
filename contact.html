@@ -14,7 +14,7 @@
         }
         
         body {
-            background-color: #121212;
+            background-color: #121212;  /* 保持这个作为基础色 */
             color: #f5f5f5;
             line-height: 1.6;
         }
@@ -80,12 +80,12 @@
         .contact {
             padding: 150px 0 100px;
             min-height: 100vh;
-            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
+            background: linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.6)), /* 降低不透明度从0.8到0.6 */
                         url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485');
             background-position: center;
             background-size: cover;
             position: relative;
-            overflow: hidden; /* 添加这行确保背景不会溢出 */
+            overflow: hidden;
         }
         
         /* 添加一个渐变叠加层增强可读性 */
@@ -96,7 +96,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, transparent 20%, #121212 70%);
+            background: radial-gradient(circle, transparent 40%, rgba(18, 18, 18, 0.7) 100%); /* 调整渐变参数 */
             z-index: 0;
         }
         
@@ -229,6 +229,8 @@
         /* 响应式设计 */
         @media (max-width: 768px) {
             .contact {
+                background: linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.6)),
+                            url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485');
                 background-position: center;
                 background-size: cover;
                 padding-top: 80px;
