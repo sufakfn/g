@@ -44,14 +44,14 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: 40px;
+            height: 60px;
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 0;
+            padding: 10px 0;
             height: 100%;
         }
         
@@ -154,31 +154,32 @@
         }
         
         /* 汉堡菜单样式 */
-        .menu-toggle {
-            display: none;
+        .menu-toggle, .mobile-nav {
+            display: none !important;
         }
         
-        .mobile-nav {
-            display: none;
-        }
-        
-        /* 响应式设计 */
+        /* 修改响应式设计 */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
+            /* 移除所有移动端特殊样式 */
             .nav-links {
+                display: flex !important; /* 强制显示导航链接 */
                 gap: 15px;
             }
             
             .nav-links a {
                 font-size: 0.9rem;
+                color: #f5f5f5;
+                font-weight: 500;
             }
             
             .hero {
                 background-position: center -530px;
                 background-attachment: fixed;
+                height: 100vh;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
             }
             
             .hero p {
@@ -186,24 +187,20 @@
                 max-width: 600px;
             }
             
-            .btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-            
             .container {
                 padding: 0 20px;
             }
         }
         
-        /* 添加更小屏幕的微调 */
+        /* 移除或简化小屏幕的特殊处理 */
         @media (max-width: 480px) {
             .container {
-                padding: 0 15px;
+                padding: 0 20px;
             }
             
+            /* 保持与大屏幕相同的字体大小 */
             .hero h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
         }
     </style>
