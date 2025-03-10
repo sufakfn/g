@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系 - 智路AI行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>联系我们 - 智路AI行</title>
     <style>
-        /* 基础样式 */
+        /* 基础样式 - 与index.html保持一致 */
         * {
             margin: 0;
             padding: 0;
@@ -35,7 +35,7 @@
             padding: 0 20px;
         }
         
-        /* 导航栏 */
+        /* 导航栏 - 与index.html完全相同 */
         header {
             background-color: rgba(18, 18, 18, 0.9);
             position: fixed;
@@ -44,133 +44,93 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: 40px; /* 添加固定高度 */
+            height: 60px;
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 0; /* 从10px减小到5px */
+            padding: 10px 0;
             height: 100%;
         }
         
         .logo {
-            font-size: 1.1rem; /* 从1.3rem减小 */
+            font-size: 1.1rem;
             font-weight: 700;
             color: #64B5F6;
         }
         
         .nav-links {
             display: flex;
-            gap: 15px; /* 从20px减小到15px */
+            gap: 15px;
         }
         
         .nav-links a {
             color: #f5f5f5;
             font-weight: 500;
-            font-size: 1rem;  /* 从0.85rem增大到1rem */
+            font-size: 0.9rem;
         }
         
         .nav-links a:hover {
             color: #64B5F6;
         }
         
-        /* 联系区 */
-        .contact {
-            padding: 150px 0 100px;
-            min-height: 100vh;
+        /* 隐藏汉堡菜单 */
+        #menuToggle, #mobileNav {
+            display: none !important;
         }
         
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-align: center;
-            position: relative;
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            /* 确保导航栏在移动设备上的显示 */
+            header {
+                height: 60px;
+            }
+
+            nav {
+                padding: 10px 0;
+            }
+            
+            .nav-links {
+                display: flex !important;
+                gap: 15px;
+            }
         }
         
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: #2196F3;
-        }
-        
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #64B5F6;
-        }
-        
-        .contact-info p {
-            margin-bottom: 30px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: #262626;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            background: #2196F3;
-            transform: translateY(-5px);
-        }
-        
-        .social-link i {
-            font-size: 1.5rem;
-            color: #f5f5f5;
+        /* 联系页面特定样式 */
+        .contact-section {
+            padding: 120px 0 60px;
         }
         
         .contact-form {
-            background: #262626;
+            background: rgba(255, 255, 255, 0.05);
             padding: 30px;
             border-radius: 10px;
+            margin-top: 30px;
         }
         
         .form-group {
             margin-bottom: 20px;
         }
         
-        .form-group label {
+        label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: 500;
         }
         
-        .form-group input,
-        .form-group textarea {
+        input, textarea {
             width: 100%;
             padding: 12px;
-            background: #1E1E1E;
-            border: 1px solid #333;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 5px;
             color: #f5f5f5;
             font-size: 1rem;
         }
         
-        .form-group textarea {
+        textarea {
             min-height: 150px;
             resize: vertical;
         }
@@ -192,38 +152,11 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
-        /* 页脚 */
-        footer {
-            background: #0D0D0D;
-            padding: 5px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        footer p {
-            font-size: 0.8rem;
-            margin: 0;
-        }
-        
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 导航栏 - 与index.html相同 -->
     <header>
         <div class="container">
             <nav>
@@ -239,122 +172,38 @@
         </div>
     </header>
 
-    <!-- 联系区 -->
-    <section class="contact">
+    <!-- 联系部分 -->
+    <section class="contact-section">
         <div class="container">
-            <h2 class="section-title">联系我</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>让我们一起探讨AI的可能性</h3>
-                    <p>无论您是寻求技术合作、项目咨询还是对AI领域有任何疑问，都欢迎与我联系。我期待能够与您分享我的专业知识，共同探索AI技术的无限可能。</p>
-                    <p><i class="fas fa-envelope"></i> email@example.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 北京市海淀区</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+            <h1>联系我们</h1>
+            <p>如果您有任何问题或想了解更多关于我们服务的信息，请填写以下表单。</p>
+            
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">姓名</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">邮箱</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">留言</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn" id="submitBtn">发送消息</button>
-                        <p id="formStatus" style="margin-top: 15px; display: none;"></p>
-                    </form>
-                </div>
+                    
+                    <div class="form-group">
+                        <label for="email">电子邮件</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">主题</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">消息</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">发送消息</button>
+                </form>
             </div>
         </div>
     </section>
-
-    <!-- 页脚 -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 智路AI行. 保留所有权利.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const footer = document.querySelector('footer');
-            let timeout;
-            
-            // 显示页脚
-            function showFooter() {
-                footer.style.opacity = '1';
-            }
-            
-            // 隐藏页脚
-            function hideFooter() {
-                footer.style.opacity = '0';
-            }
-            
-            // 重置定时器
-            function resetTimer() {
-                clearTimeout(timeout);
-                showFooter();
-                timeout = setTimeout(hideFooter, 3000); // 3秒后隐藏页脚
-            }
-            
-            // 初始隐藏页脚
-            hideFooter();
-            
-            // 监听用户交互
-            document.addEventListener('mousemove', resetTimer);
-            document.addEventListener('click', resetTimer);
-            document.addEventListener('keypress', resetTimer);
-            document.addEventListener('scroll', resetTimer);
-            
-            // 初始化定时器
-            resetTimer();
-            
-            // 表单提交处理
-            const contactForm = document.getElementById('contactForm');
-            const formStatus = document.getElementById('formStatus');
-            const submitBtn = document.getElementById('submitBtn');
-            
-            contactForm.addEventListener('submit', function(e) {
-                // 阻止表单默认提交行为
-                e.preventDefault();
-                
-                // 获取表单数据
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-                
-                // 显示发送成功消息
-                formStatus.style.display = 'block';
-                formStatus.textContent = '消息已成功发送！我们会尽快回复您。';
-                formStatus.style.color = '#64B5F6';
-                
-                // 禁用提交按钮防止重复提交
-                submitBtn.disabled = true;
-                
-                // 在控制台记录表单数据（仅用于测试）
-                console.log('表单数据:', { name, email, message });
-                
-                // 3秒后重置表单和按钮
-                setTimeout(function() {
-                    contactForm.reset();
-                    submitBtn.disabled = false;
-                }, 3000);
-                
-                // 注意：这种方法不会真正发送数据到服务器
-                // 如果您需要实际发送数据，请在部署到正式环境时
-                // 使用 FormSubmit.co 的传统表单提交方式
-            });
-        });
-    </script>
 </body>
 </html> 
