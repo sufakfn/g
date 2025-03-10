@@ -83,8 +83,12 @@
         /* 推荐区 */
         .testimonials {
             padding: 150px 0 100px;
-            background-color: #1E1E1E;
             min-height: 100vh;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
+                        url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485');
+            background-position: center;
+            background-size: cover;
+            position: relative;
         }
         
         .section-title {
@@ -181,6 +185,11 @@
             /* 完全隐藏汉堡菜单和移动导航 */
             .menu-toggle, .mobile-nav {
                 display: none !important;
+            }
+            
+            .testimonials {
+                background-position: center;
+                padding-top: 80px;
             }
         }
     </style>
