@@ -1,0 +1,45 @@
+<!-- 1. 首先更新视口设置 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- 2. 然后在样式部分修改媒体查询 -->
+<style>
+    /* ... 现有样式 ... */
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+        /* 其他响应式样式 */
+        
+        /* 删除或注释掉这行代码 */
+        /*.nav-links {
+            display: none;
+        }*/
+        
+        /* 添加以下代码，确保导航栏在移动端显示 */
+        header {
+            height: 60px;
+        }
+        
+        nav {
+            padding: 10px 0;
+        }
+        
+        .nav-links {
+            display: flex !important;
+            gap: 15px;
+        }
+        
+        .nav-links a {
+            font-size: 0.9rem;
+        }
+    }
+    
+    /* 添加小屏幕的视口修复 */
+    @media screen and (max-width: 480px) {
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    }
+</style> 
