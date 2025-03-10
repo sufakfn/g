@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>推荐 - 智路AI行</title>
     <style>
         /* 基础样式 */
@@ -17,6 +17,8 @@
             background-color: #121212;
             color: #f5f5f5;
             line-height: 1.6;
+            width: 100%;
+            overflow-x: hidden;
         }
         
         a {
@@ -35,45 +37,47 @@
             padding: 0 20px;
         }
         
-        /* 导航栏 */
+        /* 导航栏 - 重新定义样式确保显示 */
         header {
             background-color: rgba(18, 18, 18, 0.9);
             position: fixed;
             width: 100%;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: 60px;
+            height: 60px !important;
         }
         
         nav {
-            display: flex;
+            display: flex !important;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 10px 0 !important;
             height: 100%;
         }
         
         .logo {
-            font-size: 1.1rem; /* 从1.3rem减小 */
+            font-size: 1.1rem;
             font-weight: 700;
             color: #64B5F6;
+            display: block !important;
         }
         
         .nav-links {
-            display: flex;
+            display: flex !important;
             gap: 15px;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
         
         .nav-links a {
             color: #f5f5f5;
             font-weight: 500;
             font-size: 0.9rem;
-        }
-        
-        .nav-links a:hover {
-            color: #64B5F6;
+            display: block !important;
         }
         
         /* 推荐区 */
@@ -164,32 +168,19 @@
             margin: 0;
         }
         
-        /* 响应式设计 */
+        /* 媒体查询 */
         @media (max-width: 768px) {
-            /* 确保导航栏在移动端显示 */
-            header {
-                height: 60px;
-            }
-            
-            nav {
-                padding: 10px 0;
-            }
-            
+            /* 确保导航显示在移动设备上 */
             .nav-links {
-                display: flex;
+                display: flex !important;
                 gap: 15px;
+                visibility: visible !important;
+                opacity: 1 !important;
             }
             
-            .nav-links a {
-                font-size: 0.9rem;
-            }
-            
-            /* 添加视口修复 */
-            html, body {
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                overflow-x: hidden;
+            /* 完全隐藏汉堡菜单和移动导航 */
+            .menu-toggle, .mobile-nav {
+                display: none !important;
             }
         }
     </style>
