@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>项目 - 智路AI行</title>
+    <title>项目 - 黄路</title>
     <style>
         /* 基础样式 */
         * {
@@ -43,19 +43,17 @@
             position: fixed;
             width: 100%;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: 60px !important;
+            height: 40px;
         }
         
         nav {
-            display: flex !important;
+            display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0 !important;
+            padding: 5px 0;
             height: 100%;
         }
         
@@ -63,21 +61,17 @@
             font-size: 1.1rem;
             font-weight: 700;
             color: #64B5F6;
-            display: block !important;
         }
         
         .nav-links {
-            display: flex !important;
+            display: flex;
             gap: 15px;
-            visibility: visible !important;
-            opacity: 1 !important;
         }
         
         .nav-links a {
             color: #f5f5f5;
             font-weight: 500;
-            font-size: 0.9rem;
-            display: block !important;
+            font-size: 1rem;
         }
         
         .nav-links a:hover {
@@ -188,16 +182,25 @@
         
         /* 媒体查询 */
         @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
+            header {
+                height: 60px;
             }
             
-            /* 确保导航显示在移动设备上 */
+            nav {
+                padding: 10px 0;
+            }
+            
             .nav-links {
                 display: flex !important;
                 gap: 15px;
-                visibility: visible !important;
-                opacity: 1 !important;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
             
             /* 完全隐藏汉堡菜单和移动导航 */
@@ -219,12 +222,12 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">智路AI行</div>
+                <div class="logo">黄路</div>
                 <div class="nav-links">
                     <a href="index.html">首页</a>
                     <a href="about.html">关于</a>
                     <a href="projects.html">项目</a>
-                    <a href="testimonials.html">推荐</a>
+                    <a href="testimonials.html">推荐分享</a>
                     <a href="contact.html">联系</a>
                 </div>
             </nav>
@@ -238,45 +241,45 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1591453089816-0fbb971b454c" alt="智能对话系统">
+                        <img src="https://images.unsplash.com/photo-1591453089816-0fbb971b454c" alt="工程造价组价RAG">
                     </div>
                     <div class="project-info">
-                        <h3>智能对话系统</h3>
-                        <p>基于最新的Transformer架构开发的智能对话系统，能够理解复杂语境并生成自然流畅的回复。</p>
+                        <h3>工程造价智能客服机器人</h3>
+                        <p>构建工程造价领域的智能客服系统，通过AI技术提供7×24小时的自动化用户咨询服务，降低人工客服成本，提升服务效率。</p>
                         <div class="project-tags">
-                            <span class="project-tag">NLP</span>
-                            <span class="project-tag">Transformer</span>
-                            <span class="project-tag">Python</span>
+                            <span class="project-tag">AI客服</span>
+                            <span class="project-tag">工程造价</span>
+                            <span class="project-tag">自然语言处理</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1561736778-92e52a7769ef" alt="图像识别系统">
+                        <img src="https://images.unsplash.com/photo-1561736778-92e52a7769ef" alt="工程造价组价RAG">
                     </div>
                     <div class="project-info">
-                        <h3>医疗图像分析</h3>
-                        <p>利用深度学习技术开发的医疗图像分析系统，可以自动检测X光片中的异常情况，辅助医生进行诊断。</p>
+                        <h3>工程造价组价RAG</h3>
+                        <p>构建工程造价领域的RAG（检索增强生成）模型，通过高质量的数据标注提升模型对工程造价组价的理解和处理能力。项目最终目标是实现工程造价自动化分析和预算编制，提高工作效率和准确性。</p>
                         <div class="project-tags">
-                            <span class="project-tag">计算机视觉</span>
-                            <span class="project-tag">CNN</span>
-                            <span class="project-tag">医疗AI</span>
+                            <span class="project-tag">RAG</span>
+                            <span class="project-tag">工程造价</span>
+                            <span class="project-tag">自动化分析</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="推荐系统">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="工程造价智能客服机器人评测">
                     </div>
                     <div class="project-info">
-                        <h3>智能推荐引擎</h3>
-                        <p>为电商平台开发的个性化推荐系统，结合协同过滤和深度学习技术，提高用户体验和转化率。</p>
+                        <h3>工程造价智能客服机器人评测</h3>
+                        <p>对智能客服机器人进行系统化评测，提升模型响应准确性和用户体验。</p>
                         <div class="project-tags">
-                            <span class="project-tag">推荐系统</span>
-                            <span class="project-tag">深度学习</span>
-                            <span class="project-tag">大数据</span>
+                            <span class="project-tag">系统评测</span>
+                            <span class="project-tag">性能优化</span>
+                            <span class="project-tag">用户体验</span>
                         </div>
                     </div>
                 </div>
@@ -287,7 +290,7 @@
     <!-- 页脚 -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 智路AI行. 保留所有权利.</p>
+            <p>&copy; 2025 黄路. 保留所有权利.</p>
         </div>
     </footer>
     <script>
@@ -326,4 +329,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
