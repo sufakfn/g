@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>推荐 - 智路AI行</title>
+    <title>推荐分享 - 黄路</title>
     <style>
         /* 基础样式 */
         * {
@@ -37,25 +37,23 @@
             padding: 0 20px;
         }
         
-        /* 导航栏 - 重新定义样式确保显示 */
+        /* 导航栏 */
         header {
             background-color: rgba(18, 18, 18, 0.9);
             position: fixed;
             width: 100%;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            height: 60px !important;
+            height: 40px;
         }
         
         nav {
-            display: flex !important;
+            display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0 !important;
+            padding: 5px 0;
             height: 100%;
         }
         
@@ -63,150 +61,234 @@
             font-size: 1.1rem;
             font-weight: 700;
             color: #64B5F6;
-            display: block !important;
         }
         
         .nav-links {
-            display: flex !important;
+            display: flex;
             gap: 15px;
-            visibility: visible !important;
-            opacity: 1 !important;
         }
         
         .nav-links a {
             color: #f5f5f5;
             font-weight: 500;
-            font-size: 0.9rem;
-            display: block !important;
+            font-size: 1rem;
         }
         
         /* 推荐区 */
         .testimonials {
-            padding: 150px 0 100px;
             min-height: 100vh;
-            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
-                        url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485');
-            background-position: center;
-            background-size: cover;
+            padding: 120px 0 80px;
             position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%),
+                        url('images/ai-background.jpg') center/cover fixed;
+            background-blend-mode: multiply;
         }
         
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .section-title::after {
+        .testimonials::before {
             content: '';
             position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: #2196F3;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/ai-bg.svg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
         }
-        
-        .testimonial-card {
-            background: #262626;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-size: 5rem;
-            color: rgba(33, 150, 243, 0.1);
-            font-family: serif;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
             position: relative;
             z-index: 1;
         }
-        
-        .testimonial-author {
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #64B5F6;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #f5f5f5;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* 标签导航样式 */
+        .tags-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .tag {
+            padding: 10px 25px;
+            background: rgba(100, 181, 246, 0.1);
+            border: 1px solid #64B5F6;
+            border-radius: 25px;
+            color: #64B5F6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
             display: flex;
             align-items: center;
+            gap: 8px;
         }
-        
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
+
+        .tag img {
+            width: 20px;
+            height: 20px;
         }
-        
-        .author-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+
+        .tag:hover {
+            background: #64B5F6;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
         }
-        
-        .author-info p {
-            font-size: 0.9rem;
-            color: #9E9E9E;
+
+        .tag.active {
+            background: #64B5F6;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
         }
-        
-        /* 页脚 */
-        footer {
-            background: #0D0D0D;
-            padding: 5px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            transition: opacity 0.5s ease;
+
+        /* 内容区域样式 */
+        .content-section {
+            margin-top: 60px;
+            scroll-margin-top: 100px;
+            padding: 30px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        
-        footer p {
-            font-size: 0.8rem;
-            margin: 0;
+
+        .content-section h2 {
+            color: #64B5F6;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(100, 181, 246, 0.3);
         }
-        
-        /* 媒体查询 */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .content-card {
+            background: rgba(16, 16, 16, 0.6);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 181, 246, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.03));
+            pointer-events: none;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            border-color: rgba(100, 181, 246, 0.3);
+        }
+
+        .content-card h3 {
+            color: #64B5F6;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            position: relative;
+        }
+
+        .content-card p {
+            margin-bottom: 20px;
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .content-card .read-more {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #64B5F6;
+            color: #fff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .content-card .read-more:hover {
+            background: #2196F3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* 响应式设计 */
         @media (max-width: 768px) {
-            /* 确保导航显示在移动设备上 */
-            .nav-links {
-                display: flex !important;
-                gap: 15px;
-                visibility: visible !important;
-                opacity: 1 !important;
+            .content-grid {
+                grid-template-columns: 1fr;
             }
-            
-            /* 完全隐藏汉堡菜单和移动导航 */
-            .menu-toggle, .mobile-nav {
-                display: none !important;
+
+            .tag {
+                padding: 8px 20px;
+                font-size: 0.9rem;
             }
-            
-            .testimonials {
-                background-position: center;
-                padding-top: 80px;
+
+            .content-section {
+                padding: 20px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
             }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- 导航栏 -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">智路AI行</div>
+                <div class="logo">黄路</div>
                 <div class="nav-links">
                     <a href="index.html">首页</a>
                     <a href="about.html">关于</a>
                     <a href="projects.html">项目</a>
-                    <a href="testimonials.html">推荐</a>
+                    <a href="testimonials.html">推荐分享</a>
                     <a href="contact.html">联系</a>
                 </div>
             </nav>
@@ -216,72 +298,110 @@
     <!-- 推荐区 -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">专业评价</h2>
-            <div class="testimonial-card">
-                <p class="testimonial-text">作为项目合作伙伴，我见证了他在AI领域的专业能力和创新思维。他不仅技术精湛，而且能够将复杂的AI概念转化为实际可行的解决方案。</p>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="张总监">
-                    <div class="author-info">
-                        <h4>张总监</h4>
-                        <p>科技公司技术总监</p>
+            <div class="section-header">
+                <h2>AI知识分享</h2>
+                <p>探索AI的无限可能，分享最新的AI技术和应用</p>
+            </div>
+
+            <!-- 标签导航 -->
+            <div class="tags-nav">
+                <a href="#ai-basics" class="tag">AI基础</a>
+                <a href="#ai-applications" class="tag">AI应用</a>
+                <a href="#ai-tools" class="tag">AI工具</a>
+                <a href="#ai-future" class="tag">AI未来</a>
+                <a href="#ai-learning" class="tag">学习资源</a>
+            </div>
+
+            <!-- AI基础内容 -->
+            <div id="ai-basics" class="content-section">
+                <h2>AI基础知识</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>人工智能基础概念</h3>
+                        <p>深入了解AI的核心概念、发展历史和基本原理，为你打开AI世界的大门。</p>
+                        <a href="articles/ai-basics/ai-concepts.html" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="content-card">
+                        <h3>机器学习入门指南</h3>
+                        <p>从零开始学习机器学习，掌握基本算法和应用场景，了解监督学习、无监督学习和强化学习的区别。</p>
+                        <a href="articles/ai-basics/machine-learning.html" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="content-card">
+                        <h3>深度学习基础</h3>
+                        <p>探索神经网络的奥秘，了解深度学习如何改变世界，从基本概念到实际应用的全面介绍。</p>
+                        <a href="articles/ai-basics/deep-learning.html" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="content-card">
+                        <h3>自然语言处理技术</h3>
+                        <p>了解NLP技术如何让机器理解和生成人类语言，探索从词向量到大型语言模型的技术演进。</p>
+                        <a href="articles/ai-basics/nlp-technology.html" class="read-more">阅读更多</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">他开发的医疗图像分析系统大大提高了我们的诊断效率和准确率。他对医疗领域的理解和AI技术的应用能力令人印象深刻。</p>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="李医生">
-                    <div class="author-info">
-                        <h4>李医生</h4>
-                        <p>三甲医院放射科主任</p>
+
+            <!-- AI应用内容 -->
+            <div id="ai-applications" class="content-section">
+                <h2>AI应用案例</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>AI在医疗健康领域的应用</h3>
+                        <p>探索AI如何助力医疗诊断、药物研发和健康管理，改变传统医疗模式，提高诊断准确率。</p>
+                        <a href="articles/ai-applications/healthcare.html" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="content-card">
+                        <h3>AI在教育领域的创新</h3>
+                        <p>了解AI如何个性化学习体验，提升教育效果，打造智能教育平台和自适应学习系统。</p>
+                        <a href="articles/ai-applications/education-innovation.html" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="content-card">
+                        <h3>AI在金融科技中的应用</h3>
+                        <p>探索AI如何革新金融服务、风险控制和投资决策，提高金融安全性和服务效率。</p>
+                        <a href="articles/ai-applications/fintech-applications.html" class="read-more">阅读更多</a>
+                    </div>
+                    <div class="content-card">
+                        <h3>AI驱动的智能制造</h3>
+                        <p>了解AI如何优化生产流程、预测设备维护需求，提高制造业效率和产品质量。</p>
+                        <a href="articles/ai-applications/smart-manufacturing.html" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI工具内容 -->
+            <div id="ai-tools" class="content-section">
+                <h2>AI工具推荐</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>主流AI开发工具</h3>
+                        <p>详细介绍TensorFlow、PyTorch等主流AI框架的特点和使用场景，助您选择合适工具。</p>
+                        <a href="articles/ai-tools/ai-tools-overview.html" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI未来内容 -->
+            <div id="ai-future" class="content-section">
+                <h2>AI未来趋势</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>人工智能发展趋势</h3>
+                        <p>探讨AI技术未来五年发展趋势，包括通用人工智能、伦理规范等重要议题。</p>
+                        <a href="articles/ai-future/ai-future-trends.html" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 学习资源内容 -->
+            <div id="ai-learning" class="content-section">
+                <h2>AI学习资源</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>优质学习路径推荐</h3>
+                        <p>整理国内外优质AI学习资源，包括在线课程、技术文档和社区论坛。</p>
+                        <a href="articles/ai-learning/ai-learning-resources.html" class="read-more">阅读更多</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- 页脚 -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 智路AI行. 保留所有权利.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const footer = document.querySelector('footer');
-            let timeout;
-            
-            // 显示页脚
-            function showFooter() {
-                footer.style.opacity = '1';
-            }
-            
-            // 隐藏页脚
-            function hideFooter() {
-                footer.style.opacity = '0';
-            }
-            
-            // 重置定时器
-            function resetTimer() {
-                clearTimeout(timeout);
-                showFooter();
-                timeout = setTimeout(hideFooter, 3000); // 3秒后隐藏页脚
-            }
-            
-            // 初始隐藏页脚
-            hideFooter();
-            
-            // 监听用户交互
-            document.addEventListener('mousemove', resetTimer);
-            document.addEventListener('click', resetTimer);
-            document.addEventListener('keypress', resetTimer);
-            document.addEventListener('scroll', resetTimer);
-            
-            // 初始化定时器
-            resetTimer();
-        });
-    </script>
 </body>
-</html> 
+</html>
