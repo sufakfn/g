@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>人工智能基础概念 - AI知识分享</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%),
+                        url('../../images/tech-pattern.svg') center/cover fixed;
+            background-blend-mode: multiply;
+            min-height: 100vh;
+            padding: 80px 0;
+            position: relative;
+            overflow-x: hidden;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(100, 181, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.4; }
+        }
+        
+        a {
+            text-decoration: none;
+            color: #64B5F6;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #2196F3;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        header {
+            background-color: rgba(18, 18, 18, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            height: 40px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            height: 100%;
+        }
+        
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #64B5F6;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-links a {
+            color: #f5f5f5;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        /* 文章内容样式 */
+        .article {
+            min-height: 100vh;
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            color: #64B5F6;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .article-content {
+            background: rgba(16, 16, 16, 0.6);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(100, 181, 246, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .article-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(100, 181, 246, 0.1));
+            pointer-events: none;
+        }
+
+        .article-content:hover {
+            transform: translateY(-5px);
+            border-color: rgba(100, 181, 246, 0.4);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .article-content h2 {
+            color: #64B5F6;
+            font-size: 1.8rem;
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(100, 181, 246, 0.3);
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #64B5F6;
+            padding: 15px 20px;
+            margin: 20px 0;
+            background: rgba(100, 181, 246, 0.1);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .article-content blockquote p {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 10px;
+        }
+
+        .article-tag {
+            padding: 5px 15px;
+            background: rgba(100, 181, 246, 0.1);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .back-to-list {
+            padding: 10px 25px;
+            background: #64B5F6;
+            color: #fff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-to-list:hover {
+            background: #2196F3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .article-content {
+                padding: 25px;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .article-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">黄路</div>
+                <div class="nav-links">
+                    <a href="../../index.html">首页</a>
+                    <a href="../../about.html">关于</a>
+                    <a href="../../projects.html">项目</a>
+                    <a href="../../testimonials.html">推荐分享</a>
+                    <a href="../../contact.html">联系</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 文章内容 -->
+    <section class="article">
+        <div class="container">
+            <div class="article-header">
+                <h1>人工智能基础概念</h1>
+                <div class="article-meta">发布日期: 2023-11-15 | 阅读时间: 10分钟</div>
+            </div>
+
+            <div class="article-content">
+                <h2>什么是人工智能？</h2>
+                <p>人工智能（Artificial Intelligence，简称AI）是计算机科学的一个分支，致力于创造能够模拟人类智能行为的系统。这些系统能够学习、推理、感知、规划和解决问题，就像人类一样。</p>
+                
+                <p>人工智能的目标是开发出能够自主思考和行动的机器，使它们能够执行通常需要人类智能才能完成的任务。这包括语言理解、视觉识别、决策制定和问题解决等能力。</p>
+
+                <blockquote>
+                    <p>"人工智能是研究如何使计算机做出人类需要智能才能完成的事情的科学与工程。" — 约翰·麦卡锡（John McCarthy），人工智能之父</p>
+                </blockquote>
+
+                <h2>人工智能的发展历史</h2>
+                <p>人工智能的概念可以追溯到古代，但作为一门正式学科，它始于20世纪50年代。以下是AI发展的几个关键里程碑：</p>
+                
+                <ul>
+                    <li><strong>1950年代</strong>：约翰·麦卡锡在达特茅斯会议上首次提出"人工智能"一词，标志着AI作为一门学科的诞生。</li>
+                    <li><strong>1960-1970年代</strong>：早期AI研究集中在符号逻辑和问题解决上，开发了如ELIZA这样的早期对话系统。</li>
+                    <li><strong>1980年代</strong>：专家系统兴起，能够在特定领域模拟人类专家的决策过程。</li>
+                    <li><strong>1990-2000年代</strong>：机器学习算法开始发展，如支持向量机和决策树等。</li>
+                    <li><strong>2010年至今</strong>：深度学习革命，神经网络在图像识别、自然语言处理等领域取得突破性进展，如AlphaGo战胜世界围棋冠军。</li>
+                </ul>
+
+                <h2>人工智能的主要分支</h2>
+                <p>人工智能是一个广泛的领域，包含多个专业分支：</p>
+                
+                <ul>
+                    <li><strong>机器学习（Machine Learning）</strong>：使计算机能够从数据中学习并改进，而无需明确编程。</li>
+                    <li><strong>深度学习（Deep Learning）</strong>：机器学习的一个子集，使用多层神经网络处理复杂数据。</li>
+                    <li><strong>自然语言处理（NLP）</strong>：使计算机能够理解、解释和生成人类语言。</li>
+                    <li><strong>计算机视觉（Computer Vision）</strong>：使计算机能够从图像或视频中获取信息并理解视觉世界。</li>
+                    <li><strong>机器人学（Robotics）</strong>：结合AI与物理系统，创造能够在物理世界中执行任务的机器。</li>
+                </ul>
+
+                <h2>AI的工作原理</h2>
+                <p>人工智能系统通常基于以下几个核心原则工作：</p>
+                
+                <ol>
+                    <li><strong>数据收集与处理</strong>：AI系统需要大量数据来学习模式和规律。</li>
+                    <li><strong>算法与模型</strong>：使用各种算法（如神经网络、决策树等）来处理数据并做出预测或决策。</li>
+                    <li><strong>训练与优化</strong>：通过反复训练和调整参数，提高模型的准确性和性能。</li>
+                    <li><strong>推理与决策</strong>：基于学习到的知识，对新数据进行分析并做出决策或预测。</li>
+                </ol>
+
+                <h2>AI的应用领域</h2>
+                <p>人工智能已经渗透到我们生活的方方面面，以下是一些主要应用领域：</p>
+                
+                <ul>
+                    <li><strong>医疗健康</strong>：疾病诊断、药物研发、个性化治疗方案。</li>
+                    <li><strong>金融服务</strong>：风险评估、欺诈检测、算法交易。</li>
+                    <li><strong>教育</strong>：个性化学习、智能辅导系统、自动评分。</li>
+                    <li><strong>交通</strong>：自动驾驶汽车、交通流量优化、路线规划。</li>
+                    <li><strong>制造业</strong>：预测性维护、质量控制、供应链优化。</li>
+                    <li><strong>客户服务</strong>：聊天机器人、智能客服、个性化推荐。</li>
+                </ul>
+
+                <h2>AI的挑战与未来</h2>
+                <p>尽管AI取得了令人瞩目的进展，但仍面临许多挑战：</p>
+                
+                <ul>
+                    <li><strong>技术挑战</strong>：如通用人工智能的实现、解释性问题、数据偏见等。</li>
+                    <li><strong>伦理问题</strong>：隐私保护、算法公平性、自主武器系统等。</li>
+                    <li><strong>社会影响</strong>：就业变化、经济不平等、社会结构转变等。</li>
+                </ul>
+                
+                <p>未来，AI将继续发展，可能会出现更加智能、更具通用性的系统，进一步改变我们的生活和工作方式。关键是要确保这些技术的发展符合人类的价值观和需求。</p>
